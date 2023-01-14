@@ -52,8 +52,10 @@ jobs:
   #     - name: Set up Cloud SDK
   #       uses: google-github-actions/setup-gcloud@v1
   #     - run: |-
-          
-  #         gcloud container clusters get-credentials autopilot-cluster-1 --region europe-west1 --project scenic-era-371315
+  #         gcloud components install gke-gcloud-auth-plugin
+  #         gcloud components update
+  #         export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+  #         gcloud container clusters get-credentials autopilot-cluster-1 --region europe-west1 --project even-envoy-369215
 
   #     - name: Deploy
   #       run: |-
