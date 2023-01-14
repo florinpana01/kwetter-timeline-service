@@ -13,7 +13,7 @@ spec:
         app: timeline-service
     spec: 
       containers:
-        - name: api-gateway
+        - name: timeline-service
           image: florinpana01/timeline-service-repository
           ports:
             - containerPort: 8000
@@ -26,12 +26,12 @@ spec:
           - name: DB_PASS
             valueFrom: 
               secretKeyRef:
-                name: admin-db-secret
+                name: timeline-service-secret
                 key: password
           - name: DB_NAME
             valueFrom:
               secretKeyRef:
-                name: admin-db-secret
+                name: timeline-service-secret
                 key: database
         - name: cloud-sql-proxy
           image: gcr.io/cloudsql-docker/gce-proxy:1.28.0
